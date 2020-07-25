@@ -43,21 +43,21 @@ def upload_file():
             return redirect(request.url)
 
         if file and allowed_file(file.filename):
-            f_name = secure_filename(file.filename)
-            file.save(f_name)
-            path = Path(cwd + '/' + f_name)
-            img = open_image(path)
+            # f_name = secure_filename(file.filename)
+            # file.save(f_name)
+            # path = Path(cwd + '/' + f_name)
+            img = open_image(file)
             prediction, _, _ = model.predict(img)
             flash(f'The predicted class is: {str(prediction).capitalize()}', 'success')
-            try:
-                os.remove(f'{cwd}/{f_name}')
-            except:
-                pass
-            return render_template('index.html', f_name=f_name)
+            # try:
+            #     os.remove(f'{cwd}/{f_name}')
+            # except:
+            #     pass
+            return render_template('index.html')
 
         flash('The extension should be .jpg', 'warning')
     return render_template('index.html')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
