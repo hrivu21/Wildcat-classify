@@ -23,7 +23,7 @@ jedi==0.17.0
 Jinja2==2.11.2
 jsonschema==3.2.0
 kiwisolver==1.2.0
-lxml==4.5.0
+lxml==4.6.5
 MarkupSafe==1.1.1
 mistune==0.8.4
 numexpr==2.7.1
